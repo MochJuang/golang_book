@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/MochJuang/golang_book/application/models"
 	"github.com/joho/godotenv"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -27,7 +28,7 @@ func SetupDatabaseConnection() *gorm.DB {
 		panic("Failed to create a connection to database")
 	}
 	//nanti kita isi modelnya di sini
-	db.AutoMigrate(&)
+	db.AutoMigrate(&models.User{}, &models.Book{})
 	return db
 }
 
