@@ -28,7 +28,7 @@ func (b *bookController) All(c *fiber.Ctx) {
 	books, err := b.bookService.All()
 	if err != nil {
 		res := helper.BuildErrorResponse(err)
-		c.JSON(res)
+		c.JSON()
 	}
 
 }
