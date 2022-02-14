@@ -27,7 +27,7 @@ func NewBookRepository(dbCon *gorm.DB) BookRepository {
 }
 
 func (db *bookConnection) Insert(b models.Book) (models.Book, error) {
-	result := db.connection.Create(&b)
+	result := db.connection.Save(&b)
 	if result.Error != nil {
 		return b, errors.New(constants.ErrorAction)
 	}
@@ -55,7 +55,7 @@ func (db *bookConnection) Delete(b models.Book) (bool, error) {
 }
 func (db *bookConnection) FindById(id uint64) (models.Book, error) {
 	var book models.Book
-	result := db.connection.First(&book, "where id = ?", id)
+	result := db.connection.First(&book, "id = ?", id)
 	if result.Error != nil {
 		return book, errors.New(constants.ErrorAction)
 	}

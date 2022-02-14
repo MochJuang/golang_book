@@ -28,7 +28,7 @@ func SetupDatabaseConnection() *gorm.DB {
 		panic("Failed to create a connection to database")
 	}
 	//nanti kita isi modelnya di sini
-	db.AutoMigrate(&models.User{}, &models.Book{})
+	db.AutoMigrate(&models.Book{})
 	return db
 }
 

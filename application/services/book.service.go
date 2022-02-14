@@ -63,7 +63,6 @@ func (bs *bookService) Update(id uint64, bd dto.BookUpdateRuleValidation) (model
 
 func (bs *bookService) Delete(book models.Book) (bool, error) {
 	res, err := bs.bookRepository.Delete(book)
-
 	if err != nil {
 		return res, err
 	}
